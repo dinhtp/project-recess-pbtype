@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+package recess.pbtype;
+
+option go_package = "github.com/dinhtp/project-recess-pbtype/user";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    info: {
+        title: "Recess Project User APIs";
+        description: "User APIs";
+        version: "1.0";
+        contact: {
+            name: "Desmond";
+            email: "dinhtp@vmodev.com";
+        };
+        license: {
+            name: "Proprietary";
+        };
+    };
+    schemes: HTTPS;
+    consumes: "application/json";
+    produces: "application/json";
+};
+
+message User {
+    uint64 id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    string full_name = 5;
+}
+
+message ListUserRequest {
+    uint32 page = 1;
+    uint32 per_page = 2;
+}
+
+message ListUserResponse {
+    repeated User items = 1;
+    uint32 page = 2;
+    uint32 per_page = 3;
+    uint32 total_count = 4;
+    uint32 max_page = 5;
+}
+
+message OneUserRequest {
+    uint64 id = 1;
+}
+
+service UserService {
+    rpc List(ListUserRequest) returns (ListUserResponse) {
+        option (google.api.http) = {
+            get: "/users"
+        };
+    };
+    rpc Get(OneUserRequest) returns (User) {
+        option (google.api.http) = {
+            get: "/users/{id}"
+        };
+    };
+    rpc Create(User) returns (User) {
+        option (google.api.http) = {
+            post: "/users"
+            body: "*"
+        };
+    };
+    rpc Update(User) returns (User) {
+        option (google.api.http) = {
+            put: "/users"
+            body: "*"
+        };
+    };
+    rpc Delete(OneUserRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            delete: "/users/{id}"
+        };
+    };
+}
