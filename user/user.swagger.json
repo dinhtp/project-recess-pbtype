@@ -216,16 +216,66 @@
           "type": "string",
           "format": "uint64"
         },
+        "location_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "business_unit_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "internal": {
+          "type": "boolean"
+        },
+        "first_login": {
+          "type": "boolean"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "casbin_user": {
+          "type": "string"
+        },
+        "auth_source": {
+          "type": "string"
+        },
+        "full_name": {
+          "type": "string"
+        },
         "first_name": {
           "type": "string"
         },
         "last_name": {
           "type": "string"
         },
-        "email": {
+        "note": {
           "type": "string"
         },
-        "full_name": {
+        "career_mission": {
+          "type": "string"
+        },
+        "freedom_date": {
+          "type": "string"
+        },
+        "last_login_time": {
+          "type": "string"
+        },
+        "account_type": {
+          "type": "string"
+        },
+        "billing_state": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "update_date": {
           "type": "string"
         }
       }

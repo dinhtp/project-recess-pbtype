@@ -28,10 +28,26 @@ option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
 
 message User {
     uint64 id = 1;
-    string first_name = 2;
-    string last_name = 3;
-    string email = 4;
-    string full_name = 5;
+    uint64 location_id = 2;
+    uint64 business_unit_id = 3;
+    bool active = 4;
+    bool internal = 5;
+    bool first_login = 6;
+    string email = 7;
+    string password = 8;
+    string casbin_user = 9;
+    string auth_source = 10;
+    string full_name = 11;
+    string first_name = 12;
+    string last_name = 13;
+    string note = 14;
+    string career_mission = 15;
+    string freedom_date = 16;
+    string last_login_time = 17;
+    string account_type = 18;
+    string billing_state = 19;
+    string created_at = 20;
+    string update_date = 21;
 }
 
 message ListUserRequest {
